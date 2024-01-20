@@ -51,6 +51,9 @@ export default defineConfig(({ isSsrBuild }) => {
         'solid',
       ],
     },
+    optimizeDeps: {
+      exclude: ['@codemirror/state'],
+    },
     test: {
       clearMocks: true,
       deps: {

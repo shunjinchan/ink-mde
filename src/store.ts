@@ -1,5 +1,4 @@
 import { createSignal } from 'solid-js'
-import { katex } from '/plugins/katex'
 import { createExtensions } from '/src/extensions'
 import { override } from '/src/utils/merge'
 import { makeQueue } from '/src/utils/queue'
@@ -25,12 +24,12 @@ export const blankState = (): InkInternal.StateResolved => {
     interface: {
       appearance: InkValues.Appearance.Auto,
       attribution: true,
-      autocomplete: false,
+      autocomplete: true,
       images: false,
       lists: false,
       readonly: false,
       spellcheck: true,
-      toolbar: false,
+      toolbar: true,
     },
     katex: false,
     keybindings: {
@@ -40,7 +39,6 @@ export const blankState = (): InkInternal.StateResolved => {
     },
     placeholder: '',
     plugins: [
-      katex(),
     ],
     readability: false,
     search: true,

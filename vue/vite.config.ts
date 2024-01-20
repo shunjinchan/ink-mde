@@ -2,7 +2,6 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
-import { externalizeDeps } from 'vite-plugin-externalize-deps'
 
 const root = dirname(fileURLToPath(import.meta.url))
 
@@ -42,8 +41,10 @@ export default defineConfig(({ isSsrBuild }) => {
       },
       sourcemap: true,
     },
+    optimizeDeps: {
+      exclude: ['@codemirror/state'],
+    },
     plugins: [
-      externalizeDeps(),
       vue(),
     ],
     root,
