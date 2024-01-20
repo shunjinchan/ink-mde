@@ -2,7 +2,6 @@
 
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
-import { externalizeDeps } from 'vite-plugin-externalize-deps'
 import solidjs from 'vite-plugin-solid'
 
 // https://vitejs.dev/config/
@@ -33,7 +32,6 @@ export default defineConfig(({ isSsrBuild }) => {
       target: 'esnext',
     },
     plugins: [
-      externalizeDeps(),
       solidjs({
         solid: {
           generate: isSsrBuild ? 'ssr' : 'dom',
