@@ -158,14 +158,5 @@ export const lazyResolvers: InkInternal.LazyExtensionResolvers = [
     }
 
     return compartment.reconfigure([])
-  },
-  async ([state]: InkInternal.Store, compartment: InkInternal.Vendor.Compartment) => {
-    if (state().options.vim) {
-      const { vim } = await import('/src/vendor/extensions/vim')
-
-      return compartment.reconfigure(vim())
-    }
-
-    return compartment.reconfigure([])
-  },
+  }
 ]
