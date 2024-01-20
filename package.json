@@ -146,6 +146,7 @@
     "@lezer/markdown": "^1.2.0",
     "ink-mde": "workspace:*",
     "katex": "^0.16.9",
+    "lucide-solid": "^0.312.0",
     "solid-js": "^1.8.11",
     "style-mod": "^4.1.0"
   },

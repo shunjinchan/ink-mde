@@ -55,7 +55,7 @@ export const blankState = (): InkInternal.StateResolved => {
       orderedList: true,
       quote: true,
       taskList: true,
-      upload: false,
+      upload: true,
     },
     // This value overrides both `tab` and `shiftTab` keybindings.
     trapTab: undefined,

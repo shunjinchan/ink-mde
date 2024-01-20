@@ -43,6 +43,9 @@ importers:
       katex:
         specifier: ^0.16.9
         version: 0.16.9
+      lucide-solid:
+        specifier: ^0.312.0
+        version: 0.312.0(solid-js@1.8.11)
       solid-js:
         specifier: ^1.8.11
         version: 1.8.11
@@ -4469,6 +4472,14 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
+
+  /lucide-solid@0.312.0(solid-js@1.8.11):
+    resolution: {integrity: sha512-u+eypvNTx4YSRGJxVoN7hBIAtgNK6SA30CUaJuM7bT4BLag6+4oSTiOg7WYmcwxp95xNUNmsFO1xUvAV3MVnnw==}
+    peerDependencies:
+      solid-js: ^1.4.7
+    dependencies:
+      solid-js: 1.8.11
+    dev: false
 
   /magic-string@0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
