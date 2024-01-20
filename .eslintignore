@@ -1,1 +1,2 @@
 svelte
+src/plugins/hashtags/parser.ts
