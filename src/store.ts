@@ -23,7 +23,8 @@ export const blankState = (): InkInternal.StateResolved => {
     },
     interface: {
       appearance: InkValues.Appearance.Auto,
-      attribution: true,
+      // 编辑器版权归属信息
+      attribution: false,
       autocomplete: true,
       images: false,
       lists: false,
