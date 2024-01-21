@@ -53,10 +53,11 @@ const theme = syntaxHighlighting(
   HighlightStyle.define([
     {
       tag: tags.hashtag,
-      backgroundColor: 'var(--ink-internal-syntax-hashtag-background-color)',
-      borderRadius: '0.25rem',
-      color: 'var(--ink-internal-syntax-hashtag-color)',
-      padding: '0.125rem 0.25rem',
+      // backgroundColor: 'var(--ink-internal-syntax-hashtag-background-color)',
+      // borderRadius: '0.25rem',
+      // color: 'var(--ink-internal-syntax-hashtag-color)',
+      // padding: '0.125rem 0.25rem',
+      class: 'hashtag',
     },
   ]),
 )
