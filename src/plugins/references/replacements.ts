@@ -30,6 +30,7 @@ const referenceWidget = (text: string): ReferenceWidget => {
       span.innerText = text
       // Todo: Do we need to hide the overlay?
       span.setAttribute('aria-hidden', 'true')
+      span.setAttribute('class', 'reference')
 
       return span
     },
