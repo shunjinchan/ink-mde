@@ -16,6 +16,9 @@ export const blankState = (): InkInternal.StateResolved => {
       handler: () => {},
       injectMarkup: true,
       types: ['image/*'],
+      processUrl: (str) => {
+        return str
+      },
     },
     hooks: {
       afterUpdate: () => {},

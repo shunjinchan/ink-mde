@@ -168,6 +168,7 @@ export namespace Options {
     handler: (files: FileList) => Promise<string | void> | string | void,
     injectMarkup: boolean,
     types: string[],
+    processUrl?: (url: string) => string,
   }
 
   export interface Hooks {

@@ -57,7 +57,7 @@ class ImageWidget extends WidgetType {
   }
 }
 
-export const images = (): Extension => {
+export const images = ({ processUrl }: { processUrl?: (url: string) => string }): Extension => {
   const imageRegex = /!\[.*?\]\((?<url>.*?)\)/
 
   const imageDecoration = (imageWidgetParams: ImageWidgetParams) => Decoration.widget({
@@ -75,7 +75,7 @@ export const images = (): Extension => {
           const result = imageRegex.exec(state.doc.sliceString(from, to))
 
           if (result && result.groups && result.groups.url)
-            widgets.push(imageDecoration({ url: result.groups.url }).range(state.doc.lineAt(from).from))
+            widgets.push(imageDecoration({ url: processUrl(result.groups.url) }).range(state.doc.lineAt(from).from))
         }
       },
     })

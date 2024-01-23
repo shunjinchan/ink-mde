@@ -96,7 +96,9 @@ export const lazyResolvers: InkInternal.LazyExtensionResolvers = [
     if (state().options.interface.images) {
       const { images } = await import('/src/vendor/extensions/images')
 
-      return compartment.reconfigure(images())
+      return compartment.reconfigure(images({
+        processUrl: state().options.files.processUrl
+      }))
     }
 
     return compartment.reconfigure([])
