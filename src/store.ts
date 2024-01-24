@@ -64,6 +64,7 @@ export const blankState = (): InkInternal.StateResolved => {
     // This value overrides both `tab` and `shiftTab` keybindings.
     trapTab: undefined,
     vim: false,
+    keymaps: [],
   }
 
   return {

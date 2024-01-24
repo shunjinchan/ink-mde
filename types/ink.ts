@@ -99,6 +99,10 @@ export interface Options {
   toolbar?: Partial<Options.Toolbar>,
   trapTab?: boolean,
   vim?: boolean,
+  keymaps?: {
+    key: string,
+    run: () => boolean,
+  }[],
 }
 
 export interface OptionsResolved {
@@ -119,6 +123,10 @@ export interface OptionsResolved {
   toolbar: Required<Options.Toolbar>,
   trapTab?: boolean,
   vim: boolean,
+  keymaps: {
+    key: string,
+    run: () => boolean,
+  }[],
 }
 
 export namespace Options {

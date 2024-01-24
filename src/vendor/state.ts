@@ -1,5 +1,5 @@
 import { defaultKeymap, history, historyKeymap } from '@codemirror/commands'
-import { type EditorSelection, EditorState } from '@codemirror/state'
+import { type EditorSelection, EditorState, Prec } from '@codemirror/state'
 import { keymap } from '@codemirror/view'
 import { buildVendors } from '/src/extensions'
 import { blockquote } from '/src/vendor/extensions/blockquote'
@@ -22,9 +22,13 @@ export const makeState = ([state, setState]: InkInternal.Store): InkInternal.Ven
     selection: toVendorSelection(state().options.selections),
     extensions: [
       keymap.of([
-        ...defaultKeymap,
+          // 重写需要先过滤掉默认的快捷键行为
+        ...defaultKeymap.filter(item => item.key !== 'Mod-Enter'),
         ...historyKeymap,
       ]),
+      ...state().options?.keymaps.map((item) => {
+        return Prec.highest(keymap.of(item))
+      }),
       blockquote(),
       code(),
       history(),
