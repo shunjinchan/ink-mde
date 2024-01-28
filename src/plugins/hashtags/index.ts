@@ -12,6 +12,11 @@ const tags = {
   hashtag: Tag.define(),
 }
 
+type hashtagOptions = {
+  onTagged?: (tag: string) => void
+}
+const opt: hashtagOptions = {}
+
 const Hashtag: MarkdownConfig = {
   defineNodes: [
     {
@@ -34,6 +39,9 @@ const Hashtag: MarkdownConfig = {
         if (prefixMatch) {
           const start = index - prefixMatch.boundary.length
           const fullMatch = matchHashtag(inline.slice(start, inline.end))
+          if (opt?.onTagged) {
+            opt.onTagged(fullMatch?.sign + fullMatch?.tag)
+          }
 
           if (fullMatch) {
             return inline.addElement(
@@ -63,7 +71,10 @@ const theme = syntaxHighlighting(
 )
 
 // export const hashtags = (config: Config): Ink.Options.Plugin[] => {
-export const hashtags = (config: Config) => {
+export const hashtags = (config: Config, options?: hashtagOptions) => {
+  if (options?.onTagged) {
+    opt.onTagged = options.onTagged
+  }
   return [
     { type: 'completion', value: completions(config) },
     { type: 'default', value: theme },
