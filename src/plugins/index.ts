@@ -1,5 +1,5 @@
-import { hashtags } from './hashtags'
-import { references } from './references'
+export { hashtags } from './hashtags'
+export { references } from './references'
 
 // import { mermaid } from './mermaid'
 // import { urls } from './urls'
