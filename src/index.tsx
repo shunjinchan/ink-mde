@@ -10,6 +10,8 @@ import type * as Ink from '/types/ink'
 export type * from '/types/ink'
 export { appearanceTypes, pluginTypes } from '/types/values'
 export { plugins } from './plugins'
+export { hashtags, references } from './plugins'
+export * as hashtagParser from './plugins/hashtags/parser.ts'
 
 export const defineConfig = <T extends Ink.Options>(config: T) => config
 export const defineOptions = <T extends Ink.Options>(options: T) => options
