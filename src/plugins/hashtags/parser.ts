@@ -12,12 +12,13 @@ export const hashtagBoundaryChars = new RegExp(`[^&${unicodeLettersAndMarks.sour
 export const hashtagBoundary = /(?<boundary>^|\s)/
 export const hashtag = new RegExp(`(?<sign>${hashSigns.source})(?!${/\uFE0F|\u20E3/.source})(?<tag>${hashtagChars.source}+)`, 'i')
 export const hashtagWithBoundary = new RegExp(`(?:${hashtagBoundary.source})(?:${hashtag.source})`, 'i')
+export const allHashtagWithBoundary = new RegExp(`(?:${hashtagBoundary.source})(?:${hashtag.source})`, 'gi')
 export const hashtagStart = new RegExp(`${hashtagBoundary.source}(?<sign>${hashSigns.source})(?!${/\uFE0F|\u20E3/.source})`, 'i')
 
 export const HASHTAG_CODES = [35, 65283]
 export const MATCH_HASHTAG_PREFIX = new RegExp(`(${hashtagBoundary.source}${hashSigns.source})$`, 'i')
 
-const formatMatch = (match: RegExpMatchArray) => {
+export const formatMatch = (match: RegExpMatchArray) => {
   const boundary = match.groups?.boundary || ''
   const sign = match.groups?.sign || ''
   const tag = match.groups?.tag || ''
