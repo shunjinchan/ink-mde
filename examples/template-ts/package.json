@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@uiw/codemirror-extensions-hyper-link": "^4.21.21",
     "ink-mde": "workspace:*"
   },
   "devDependencies": {

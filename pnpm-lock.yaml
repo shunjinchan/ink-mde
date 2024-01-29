@@ -131,6 +131,9 @@ importers:
 
   examples/template-ts:
     dependencies:
+      '@uiw/codemirror-extensions-hyper-link':
+        specifier: ^4.21.21
+        version: 4.21.21(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)
       ink-mde:
         specifier: workspace:*
         version: link:../..
@@ -2030,6 +2033,16 @@ packages:
       '@typescript-eslint/types': 6.19.0
       eslint-visitor-keys: 3.4.3
     dev: true
+
+  /@uiw/codemirror-extensions-hyper-link@4.21.21(@codemirror/state@6.4.0)(@codemirror/view@6.23.0):
+    resolution: {integrity: sha512-DvxsVEh/UrecS2Ca7EGYKuu/oghqOH/4dbFlgfOiAXr46PjEAjWYcxMbzEu/9eW5kQmTnW6sUxcEOVNL7IIbyA==}
+    peerDependencies:
+      '@codemirror/state': '>=6.0.0'
+      '@codemirror/view': '>=6.0.0'
+    dependencies:
+      '@codemirror/state': 6.4.0
+      '@codemirror/view': 6.23.0
+    dev: false
 
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
