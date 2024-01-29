@@ -1,4 +1,4 @@
-import { markdown as markdownExtension, markdownLanguage } from '@codemirror/lang-markdown'
+import { markdown as markdownExtension, markdownLanguage } from './markdown/lang-markdown'
 import { languages as baseLanguages } from '@codemirror/language-data'
 import { Compartment } from '@codemirror/state'
 import { type MarkdownExtension } from '@lezer/markdown'
