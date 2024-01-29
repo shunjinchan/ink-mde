@@ -10,7 +10,8 @@ import { theme } from '/src/vendor/extensions/theme'
 import type * as Ink from '/types/ink'
 import type InkInternal from '/types/internal'
 import { toCodeMirror } from './adapters/selections'
-import { hyperLink } from '@uiw/codemirror-extensions-hyper-link';
+// hyper-link 性能有问题
+// import { hyperLink } from '@uiw/codemirror-extensions-hyper-link';
 
 const toVendorSelection = (selections: Ink.Editor.Selection[]): EditorSelection | undefined => {
   if (selections.length > 0)
@@ -36,7 +37,6 @@ export const makeState = ([state, setState]: InkInternal.Store): InkInternal.Ven
       ink(),
       lineWrapping(),
       theme(),
-      hyperLink,
       ...buildVendors([state, setState]),
     ],
   })
