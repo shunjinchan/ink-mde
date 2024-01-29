@@ -1,5 +1,6 @@
 export { hashtags } from './hashtags'
 export { references } from './references'
+export { autoLink } from './autolink.ts'
 
 // import { mermaid } from './mermaid'
 // import { urls } from './urls'
@@ -21,6 +22,7 @@ export const plugins = (config: Config) => {
     ...hashtags(config),
     // ...mermaid(config),
     ...references(config),
+      ...autoLink(),
     // ...urls(config),
   ]
 }
