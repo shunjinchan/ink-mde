@@ -6,6 +6,7 @@ import { buildVendorUpdates } from '/src/extensions'
 import { filterPlugins, partitionPlugins } from '/src/utils/options'
 import { type InkInternal, type OptionsResolved, pluginTypes } from '/types'
 
+
 const makeExtension = ([state, setState]: InkInternal.Store) => {
   const baseExtensions = [] as MarkdownExtension[]
   const [lazyExtensions, extensions] = filterExtensions(state().options)

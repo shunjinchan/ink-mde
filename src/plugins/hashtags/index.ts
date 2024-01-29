@@ -1,7 +1,7 @@
 // https://discuss.codemirror.net/t/adding-support-for-the-additional-inline-syntax-to-markdown/3099
-import { Tag } from '@lezer/highlight'
-import type { MarkdownConfig } from '../../markdown/lezer-markdown'
 import { HighlightStyle, syntaxHighlighting } from '@codemirror/language'
+import { Tag } from '@lezer/highlight'
+import type { MarkdownConfig } from '../../markdown/lezer-markdown/markdown.ts'
 
 // import type * as Ink from 'ink-mde'
 import type { Config } from '../index'
@@ -13,7 +13,7 @@ const tags = {
 }
 
 type hashtagOptions = {
-  onTagged?: (tag: string) => void
+  onTagged?: (tag: string) => void,
 }
 const opt: hashtagOptions = {}
 

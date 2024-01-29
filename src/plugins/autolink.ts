@@ -91,6 +91,7 @@ const theme = syntaxHighlighting(
     HighlightStyle.define([
         {
             tag: tags.link,
+            // 使用了 class 其他 css 样式属性就失效了
             // backgroundColor: 'var(--ink-internal-syntax-hashtag-background-color)',
             // borderRadius: '0.25rem',
             // color: 'var(--ink-internal-syntax-hashtag-color)',
