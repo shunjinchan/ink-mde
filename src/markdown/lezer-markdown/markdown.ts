@@ -132,7 +132,7 @@ export class Line {
   forward() {
     if (this.basePos > this.pos) this.forwardInner()
   }
-  
+
   /// @internal
   forwardInner() {
     let newPos = this.skipSpace(this.basePos)
@@ -712,7 +712,7 @@ export class BlockContext implements PartialParse {
       }
       break
     }
-      
+
     let leaf = new LeafBlock(this.lineStart + line.pos, line.text.slice(line.pos))
     for (let parse of this.parser.leafBlockParsers) if (parse) {
       let parser = parse!(this, leaf)
@@ -996,7 +996,7 @@ export interface InlineParser {
   /// When given, the parser will be installed directly _after_ the
   /// parser with the given name.
   after?: string
-}  
+}
 
 /// Block parsers handle block-level structure. There are three
 /// general types of block parsers:
@@ -1310,7 +1310,7 @@ class Buffer {
       length
     })
   }
-}  
+}
 
 /// Elements are used to compose syntax nodes during parsing.
 export class Element {

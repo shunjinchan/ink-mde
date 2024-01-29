@@ -1,6 +1,6 @@
 // https://discuss.codemirror.net/t/adding-support-for-the-additional-inline-syntax-to-markdown/3099
 import { Tag } from '@lezer/highlight'
-import type { MarkdownConfig } from '@lezer/markdown'
+import type { MarkdownConfig } from '../../markdown/lezer-markdown'
 import { HighlightStyle, syntaxHighlighting } from '@codemirror/language'
 
 // import type * as Ink from 'ink-mde'

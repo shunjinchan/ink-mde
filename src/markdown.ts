@@ -1,7 +1,7 @@
 import { markdown as markdownExtension, markdownLanguage } from './markdown/lang-markdown'
 import { languages as baseLanguages } from '@codemirror/language-data'
 import { Compartment } from '@codemirror/state'
-import { type MarkdownExtension } from '@lezer/markdown'
+import { type MarkdownExtension } from './markdown/lezer-markdown'
 import { buildVendorUpdates } from '/src/extensions'
 import { filterPlugins, partitionPlugins } from '/src/utils/options'
 import { type InkInternal, type OptionsResolved, pluginTypes } from '/types'

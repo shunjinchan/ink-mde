@@ -2,7 +2,8 @@ import {Prec, EditorState} from "@codemirror/state"
 import {KeyBinding, keymap} from "@codemirror/view"
 import {Language, LanguageSupport, LanguageDescription, syntaxTree} from "@codemirror/language"
 import {Completion, CompletionContext} from "@codemirror/autocomplete"
-import {MarkdownExtension, MarkdownParser, parseCode} from '@lezer/markdown'
+import { parseCode} from '../lezer-markdown'
+import {MarkdownExtension, MarkdownParser} from '../lezer-markdown/markdown.ts'
 import {html, htmlCompletionSource} from "@codemirror/lang-html"
 import {commonmarkLanguage, markdownLanguage, mkLang, getCodeParser} from "./markdown.ts"
 import {insertNewlineContinueMarkup, deleteMarkupBackward} from "./commands.ts"

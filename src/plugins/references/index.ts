@@ -2,7 +2,7 @@ import { HighlightStyle, syntaxHighlighting } from '@codemirror/language'
 import { Tag, tags as highlightTags } from '@lezer/highlight'
 import { completions } from './completions'
 import { replacements } from './replacements'
-import type { MarkdownConfig } from '@lezer/markdown'
+import type { MarkdownConfig } from '../../markdown/lezer-markdown'
 
 const LEFT_BRACKET_CODE = 91
 const RIGHT_BRACKET_CODE = 93
