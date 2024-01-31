@@ -32,11 +32,11 @@ export const addCustomClassNameForTagUrl = () => {
             // borderRadius: '0.25rem',
             // color: 'var(--ink-internal-syntax-hashtag-color)',
             // padding: '0.125rem 0.25rem',
-            class: 'url',
+            class: 'cm-url',
           },
           {
             tag: tags.link,
-            class: 'link'
+            class: 'cm-link'
           }
         ]),
     ),
