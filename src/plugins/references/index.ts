@@ -77,11 +77,11 @@ const theme = syntaxHighlighting(
   HighlightStyle.define([
     {
       tag: tags.reference,
-      class: 'reference',
+      class: 'cm-reference',
     },
     {
       tag: tags.referenceMark,
-      class: 'reference-mark',
+      class: 'cm-reference-mark',
     },
   ]),
 )
