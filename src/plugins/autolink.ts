@@ -96,7 +96,7 @@ const theme = syntaxHighlighting(
             // borderRadius: '0.25rem',
             // color: 'var(--ink-internal-syntax-hashtag-color)',
             // padding: '0.125rem 0.25rem',
-            class: 'link',
+            class: 'url',
         },
     ]),
 )

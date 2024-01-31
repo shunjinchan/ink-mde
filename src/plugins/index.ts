@@ -20,7 +20,7 @@ export interface Doc {
 
 // console.log(tags)
 
-export const addCustomClassNameForTagUrl = (className) => {
+export const addCustomClassNameForTagUrl = () => {
   return {
     type: 'default',
     value: syntaxHighlighting(
@@ -32,8 +32,12 @@ export const addCustomClassNameForTagUrl = (className) => {
             // borderRadius: '0.25rem',
             // color: 'var(--ink-internal-syntax-hashtag-color)',
             // padding: '0.125rem 0.25rem',
-            class: className ||'link',
+            class: 'url',
           },
+          {
+            tag: tags.link,
+            class: 'link'
+          }
         ]),
     ),
   }
