@@ -12,6 +12,8 @@ import type InkInternal from '/types/internal'
 import { toCodeMirror } from './adapters/selections'
 // hyper-link 性能有问题
 // import { hyperLink } from '@uiw/codemirror-extensions-hyper-link';
+import * as events from '@uiw/codemirror-extensions-events'
+import { type Events } from '@uiw/codemirror-extensions-events'
 
 const toVendorSelection = (selections: Ink.Editor.Selection[]): EditorSelection | undefined => {
   if (selections.length > 0)
@@ -19,6 +21,8 @@ const toVendorSelection = (selections: Ink.Editor.Selection[]): EditorSelection 
 }
 
 export const makeState = ([state, setState]: InkInternal.Store): InkInternal.Vendor.State => {
+  // console.log(state().options)
+  const eventExt: Events = events.content(state().options.events);
   return EditorState.create({
     doc: state().options.doc,
     selection: toVendorSelection(state().options.selections),
@@ -28,6 +32,7 @@ export const makeState = ([state, setState]: InkInternal.Store): InkInternal.Ven
         ...defaultKeymap.filter(item => item.key !== 'Mod-Enter'),
         ...historyKeymap,
       ]),
+      // 自定义快捷键
       ...state().options?.keymaps.map((item) => {
         return Prec.highest(keymap.of(item))
       }),
@@ -37,6 +42,7 @@ export const makeState = ([state, setState]: InkInternal.Store): InkInternal.Ven
       ink(),
       lineWrapping(),
       theme(),
+      eventExt,
       ...buildVendors([state, setState]),
     ],
   })

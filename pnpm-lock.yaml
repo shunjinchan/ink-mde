@@ -131,6 +131,9 @@ importers:
 
   examples/template-ts:
     dependencies:
+      '@uiw/codemirror-extensions-events':
+        specifier: ^4.21.21
+        version: 4.21.21(@codemirror/view@6.23.0)
       '@uiw/codemirror-extensions-hyper-link':
         specifier: ^4.21.21
         version: 4.21.21(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)
@@ -2033,6 +2036,14 @@ packages:
       '@typescript-eslint/types': 6.19.0
       eslint-visitor-keys: 3.4.3
     dev: true
+
+  /@uiw/codemirror-extensions-events@4.21.21(@codemirror/view@6.23.0):
+    resolution: {integrity: sha512-mkvm6r/W1GwXwNOOeinn4tk8/Gf9yyhyDY+Gn5EVT6oeoR+qnYtVM51n50O73RNG0Jc0QEuuOiqtVWj//HiRHQ==}
+    peerDependencies:
+      '@codemirror/view': '>=6.0.0'
+    dependencies:
+      '@codemirror/view': 6.23.0
+    dev: false
 
   /@uiw/codemirror-extensions-hyper-link@4.21.21(@codemirror/state@6.4.0)(@codemirror/view@6.23.0):
     resolution: {integrity: sha512-DvxsVEh/UrecS2Ca7EGYKuu/oghqOH/4dbFlgfOiAXr46PjEAjWYcxMbzEu/9eW5kQmTnW6sUxcEOVNL7IIbyA==}

@@ -4,6 +4,7 @@ import { type LanguageDescription } from '@codemirror/language'
 import { type Extension } from '@codemirror/state'
 import { type MarkdownConfig } from '@lezer/markdown'
 import type * as InkValues from './values'
+import { type Events } from '@uiw/codemirror-extensions-events'
 
 export type VendorCompletion = CompletionSource
 export type VendorExtension = Extension
@@ -103,6 +104,7 @@ export interface Options {
     key: string,
     run: () => boolean,
   }[],
+  events?: Events,
 }
 
 export interface OptionsResolved {
@@ -127,6 +129,7 @@ export interface OptionsResolved {
     key: string,
     run: () => boolean,
   }[],
+  events: Events,
 }
 
 export namespace Options {

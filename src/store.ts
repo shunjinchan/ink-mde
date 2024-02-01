@@ -65,6 +65,7 @@ export const blankState = (): InkInternal.StateResolved => {
     trapTab: undefined,
     vim: false,
     keymaps: [],
+    events: undefined
   }
 
   return {
