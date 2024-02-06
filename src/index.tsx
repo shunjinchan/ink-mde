@@ -6,6 +6,7 @@ import { App } from '/src/ui/app'
 import { isPromise } from '/src/utils/inspect'
 import { type PluginValueForType } from '/src/utils/options'
 import type * as Ink from '/types/ink'
+import type InkInternal from '/types/internal'
 
 export type * from '/types/ink'
 export { appearanceTypes, pluginTypes } from '/types/values'
@@ -28,12 +29,15 @@ export const hydrate = (target: HTMLElement, options: Ink.Options = {}): Ink.Awa
   return makeInstance(store)
 }
 
-export const ink = (target: HTMLElement, options: Ink.Options = {}): Ink.AwaitableInstance => {
-  const hasHydrationMarker = !!target.querySelector(HYDRATION_MARKER_SELECTOR)
-
-  if (hasHydrationMarker) {
-    return hydrate(target, options)
-  }
+export const ink = (target: HTMLElement, options: Ink.Options = {}): {
+  instance: Ink.AwaitableInstance
+  editor: () => InkInternal.Editor
+} => {
+  // const hasHydrationMarker = !!target.querySelector(HYDRATION_MARKER_SELECTOR)
+  //
+  // if (hasHydrationMarker) {
+  //   return hydrate(target, options)
+  // }
 
   return render(target, options)
 }
@@ -58,14 +62,25 @@ export const inkPlugin = <T extends Ink.Values.PluginType>({ key = '', type, val
 
 export const plugin = inkPlugin
 
-export const render = (target: HTMLElement, options: Ink.Options = {}): Ink.AwaitableInstance => {
+export const render = (target: HTMLElement, options: Ink.Options = {}): {
+  instance: Ink.AwaitableInstance
+  editor: () => InkInternal.Editor
+} => {
   const store = makeStore(options)
 
   if (!import.meta.env.VITE_SSR) {
     solidRender(() => <App store={store} />, target)
   }
 
-  return makeInstance(store)
+  const [state] = store
+  const { editor } = state()
+
+  return {
+    instance: makeInstance(store),
+    editor: () => {
+      return editor
+    }
+  }
 }
 
 export const renderToString = (options: Ink.Options = {}): string => {

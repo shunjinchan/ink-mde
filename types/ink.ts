@@ -5,6 +5,7 @@ import { type Extension } from '@codemirror/state'
 import { type MarkdownConfig } from '@lezer/markdown'
 import type * as InkValues from './values'
 import { type Events } from '@uiw/codemirror-extensions-events'
+import type InkInternal from '/types/internal'
 
 export type VendorCompletion = CompletionSource
 export type VendorExtension = Extension
@@ -229,8 +230,14 @@ export namespace Values {
 
 export declare function defineOptions(options: Options): Options
 export declare function hydrate(target: HTMLElement, options?: Options): Instance
-export declare function ink(target: HTMLElement, options?: Options): Instance
-export declare function render(target: HTMLElement, options?: Options): Instance
+export declare function ink(target: HTMLElement, options?: Options): {
+  instance: Instance,
+  editor: InkInternal.Editor
+}
+export declare function render(target: HTMLElement, options?: Options): {
+  instance: Instance,
+  editor: InkInternal.Editor
+}
 export declare function renderToString(options?: Options): string
 
 export default ink
