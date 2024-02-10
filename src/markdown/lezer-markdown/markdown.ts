@@ -616,7 +616,8 @@ class SetextHeadingParser implements LeafBlockParser {
 
 const DefaultLeafBlocks: {[name: string]: (cx: BlockContext, leaf: LeafBlock) => LeafBlockParser | null} = {
   LinkReference(_, leaf) { return leaf.content.charCodeAt(0) == 91 /* '[' */ ? new LinkReferenceParser(leaf) : null },
-  SetextHeading() { return new SetextHeadingParser }
+  // 移除 SetextHeading 语法高亮
+  // SetextHeading() { return new SetextHeadingParser }
 }
 
 const DefaultEndLeaf: readonly ((cx: BlockContext, line: Line) => boolean)[] = [
@@ -1880,8 +1881,11 @@ function toRelative(abs: number, ranges: readonly {from: number, to: number}[]) 
 const markdownHighlighting = styleTags({
   "Blockquote/...": t.quote,
   HorizontalRule: t.contentSeparator,
-  "ATXHeading1/... SetextHeading1/...": t.heading1,
-  "ATXHeading2/... SetextHeading2/...": t.heading2,
+  // "ATXHeading1/... SetextHeading1/...": t.heading1,
+  // "ATXHeading2/... SetextHeading2/...": t.heading2,
+  // 移除 SetextHeading 语法高亮
+  "ATXHeading1/...": t.heading1,
+  "ATXHeading2/...": t.heading2,
   "ATXHeading3/...": t.heading3,
   "ATXHeading4/...": t.heading4,
   "ATXHeading5/...": t.heading5,
