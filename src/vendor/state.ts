@@ -23,13 +23,14 @@ const toVendorSelection = (selections: Ink.Editor.Selection[]): EditorSelection 
 export const makeState = ([state, setState]: InkInternal.Store): InkInternal.Vendor.State => {
   // console.log(state().options)
   const eventExt: Events = events.content(state().options.events);
+  const keys = state().options?.keymaps.map(item => item.key)
   return EditorState.create({
     doc: state().options.doc,
     selection: toVendorSelection(state().options.selections),
     extensions: [
       keymap.of([
           // 重写需要先过滤掉默认的快捷键行为
-        ...defaultKeymap.filter(item => item.key !== 'Mod-Enter'),
+        ...defaultKeymap.filter(item => keys?.every(key => key !== item.key)),
         ...historyKeymap,
       ]),
       // 自定义快捷键
