@@ -144,6 +144,7 @@
     "@lezer/common": "^1.2.1",
     "@lezer/highlight": "^1.2.0",
     "@lezer/markdown": "^1.2.0",
+    "@uiw/codemirror-extensions-events": "^4.21.22",
     "ink-mde": "workspace:*",
     "katex": "^0.16.9",
     "lucide-solid": "^0.312.0",

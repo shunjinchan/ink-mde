@@ -37,6 +37,9 @@ importers:
       '@lezer/markdown':
         specifier: ^1.2.0
         version: 1.2.0
+      '@uiw/codemirror-extensions-events':
+        specifier: ^4.21.22
+        version: 4.21.22(@codemirror/view@6.23.0)
       ink-mde:
         specifier: workspace:*
         version: 'link:'
@@ -131,9 +134,6 @@ importers:
 
   examples/template-ts:
     dependencies:
-      '@uiw/codemirror-extensions-events':
-        specifier: ^4.21.21
-        version: 4.21.21(@codemirror/view@6.23.0)
       '@uiw/codemirror-extensions-hyper-link':
         specifier: ^4.21.21
         version: 4.21.21(@codemirror/state@6.4.0)(@codemirror/view@6.23.0)
@@ -2037,8 +2037,8 @@ packages:
       eslint-visitor-keys: 3.4.3
     dev: true
 
-  /@uiw/codemirror-extensions-events@4.21.21(@codemirror/view@6.23.0):
-    resolution: {integrity: sha512-mkvm6r/W1GwXwNOOeinn4tk8/Gf9yyhyDY+Gn5EVT6oeoR+qnYtVM51n50O73RNG0Jc0QEuuOiqtVWj//HiRHQ==}
+  /@uiw/codemirror-extensions-events@4.21.22(@codemirror/view@6.23.0):
+    resolution: {integrity: sha512-Q/bu8v7ewKYeVxhrt1MCZLFi44WS+xUw01rpjqdutcRS9K3AdSemCFA0YnXbA4StzthTDX791Lj5nZ9aFejL5w==}
     peerDependencies:
       '@codemirror/view': '>=6.0.0'
     dependencies:
