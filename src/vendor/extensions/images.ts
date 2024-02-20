@@ -2,7 +2,7 @@ import { syntaxTree } from '@codemirror/language'
 import type { EditorState, Extension, Range } from '@codemirror/state'
 import { RangeSet, StateField } from '@codemirror/state'
 import type { DecorationSet } from '@codemirror/view'
-import { Decoration, EditorView, WidgetType } from '@codemirror/view'
+import {Decoration, EditorView, ViewPlugin, WidgetType} from '@codemirror/view'
 
 interface ImageWidgetParams {
   url: string,
@@ -57,7 +57,7 @@ class ImageWidget extends WidgetType {
   }
 }
 
-export const images = ({ processUrl }: { processUrl?: (url: string) => string }): Extension => {
+export const images = ({ processUrl }: { processUrl?: (url: string) => string } = {}): Extension => {
   const imageRegex = /!\[.*?\]\((?<url>.*?)\)/
 
   const imageDecoration = (imageWidgetParams: ImageWidgetParams) => Decoration.widget({
@@ -68,14 +68,14 @@ export const images = ({ processUrl }: { processUrl?: (url: string) => string })
 
   const decorate = (state: EditorState) => {
     const widgets: Range<Decoration>[] = []
-
     syntaxTree(state).iterate({
       enter: ({ type, from, to }) => {
         if (type.name === 'Image') {
           const result = imageRegex.exec(state.doc.sliceString(from, to))
-
           if (result && result.groups && result.groups.url)
-            widgets.push(imageDecoration({ url: processUrl(result.groups.url) }).range(state.doc.lineAt(from).from))
+            widgets.push(imageDecoration({
+              url: processUrl ? processUrl(result.groups.url) : result.groups.url
+            }).range(state.doc.lineAt(from).from))
         }
       },
     })
@@ -88,10 +88,13 @@ export const images = ({ processUrl }: { processUrl?: (url: string) => string })
       return decorate(state)
     },
     update(images, transaction) {
-      if (transaction.docChanged)
-        return decorate(transaction.state)
-
-      return images.map(transaction.changes)
+      // 如果检查了 transaction.docChanged，可能会出现 syntaxTree 时 state 的数据不准确，页面首屏外的图片没有遍历到
+      // if (transaction.docChanged) {
+      //   return decorate(transaction.state)
+      // }
+      //
+      // return images.map(transaction.changes)
+      return decorate(transaction.state)
     },
     provide(field) {
       return EditorView.decorations.from(field)
@@ -100,5 +103,15 @@ export const images = ({ processUrl }: { processUrl?: (url: string) => string })
 
   return [
     imagesField,
+    // ViewPlugin.fromClass(class {
+    //   constructor(view) {
+    //   }
+    //
+    //   // 主要是为了监听滚动
+    //   update(view) {
+    //     console.log(view)
+    //     decorate(view.state)
+    //   }
+    // }),
   ]
 }
