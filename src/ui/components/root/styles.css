@@ -213,7 +213,7 @@
 }
 
 .ink-mde .cm-line.cm-codeblock {
-  background-color: var(--ink-internal-code-background-color);
+  background-color: var(--ink-internal-block-background-color);
   font-family: var(--ink-internal-code-font-family);
   padding: 0 var(--ink-internal-block-padding);
 }

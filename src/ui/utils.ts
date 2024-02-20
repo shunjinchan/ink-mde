@@ -45,7 +45,7 @@ export const makeVars = (state: InkInternal.StateResolved) => {
     { suffix: 'block-max-height', default: '20rem' },
     { suffix: 'block-padding', default: '0.5rem' },
     // --ink-code-*
-    { suffix: 'code-background-color', default: '#121212', light: '#121212' },
+    { suffix: 'code-background-color', default: 'var(--ink-internal-block-background-color)' },
     { suffix: 'code-color', default: 'inherit' },
     { suffix: 'code-font-family', default: '\'Monaco\', Courier, monospace' },
     // --ink-editor-*
